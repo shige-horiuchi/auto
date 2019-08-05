@@ -1,0 +1,46 @@
+PS C:\> conda install --yes pdfminer.six
+中略
+ERROR conda.core.link:_execute(502): An error occurred while installing package 'conda-forge::automat-0.7.0-py_1'.
+CondaError: Cannot link a source that does not exist. C:\ProgramData\Anaconda3\Scripts\conda.exe
+Running `conda clean --packages` may resolve your problem.
+Attempting to roll back.
+
+Rolling back transaction: done
+
+CondaError: Cannot link a source that does not exist. C:\ProgramData\Anaconda3\Scripts\conda.exe
+Running `conda clean --packages` may resolve your problem.
+
+PS C:\> pip install pdfminer.six
+Collecting pdfminer.six
+  Using cached https://files.pythonhosted.org/packages/8a/fd/6e8746e6965d1a7ea8e97253e3d79e625da5547e8f376f88de5d024bacb9/pdfminer.six-20181108-py2.py3-none-any.whl
+Requirement already satisfied: six in c:\programdata\anaconda3\lib\site-packages (from pdfminer.six) (1.11.0)
+Collecting pycryptodome (from pdfminer.six)
+  Using cached https://files.pythonhosted.org/packages/fc/99/ed80fd36eebe26914bd8aae4ac70fcef2d4ad94453981c171fe791629146/pycryptodome-3.7.2-cp37-cp37m-win_amd64.whl
+Requirement already satisfied: sortedcontainers in c:\programdata\anaconda3\lib\site-packages (from pdfminer.six) (2.0.5)
+twisted 18.7.0 requires PyHamcrest>=1.9.0, which is not installed.
+Installing collected packages: pycryptodome, pdfminer.six
+Successfully installed pdfminer.six-20181108 pycryptodome-3.7.2
+You are using pip version 10.0.1, however version 18.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+PS C:\> python -m pip install --upgrade pip
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/c2/d7/90f34cb0d83a6c5631cf71dfe64cc1054598c843a92b400e55675cc2ac37/pip-18.1-py2.py3-none-any.whl (1.3MB)
+    100% |████████████████████████████████| 1.3MB 1.7MB/s
+twisted 18.7.0 requires PyHamcrest>=1.9.0, which is not installed.
+Installing collected packages: pip
+  Found existing installation: pip 10.0.1
+    Uninstalling pip-10.0.1:
+      Successfully uninstalled pip-10.0.1
+Successfully installed pip-18.1
+
+PS C:\> pip install pdfminer.six
+Requirement already satisfied: pdfminer.six in c:\programdata\anaconda3\lib\site-packages (20181108)
+Requirement already satisfied: six in c:\programdata\anaconda3\lib\site-packages (from pdfminer.six) (1.11.0)
+Requirement already satisfied: sortedcontainers in c:\programdata\anaconda3\lib\site-packages (from pdfminer.six) (2.0.5)
+Requirement already satisfied: pycryptodome in c:\programdata\anaconda3\lib\site-packages (from pdfminer.six) (3.7.2)
+PS C:\> conda list pdfminer.six
+# packages in environment at C:\ProgramData\Anaconda3:
+#
+# Name                    Version                   Build  Channel
+pdfminer.six              20181108                  <pip>

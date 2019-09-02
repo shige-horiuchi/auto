@@ -4,7 +4,6 @@ from openpyxl.chart import BarChart, Reference
 
 wb = Workbook()
 ws = wb.active
-
 df = pd.read_csv('store_sales.csv')
 ws.append(df.columns.tolist())
 for row in df.values:
@@ -17,13 +16,13 @@ categories = Reference(ws, min_col = 1, min_row = 2, max_row = row_length)
 chart = BarChart()
 chart.type = 'col'
 chart.shape = 4
-chart.grouping = 'stacked'
+chart.grouping = 'percentStacked'
 chart.overlap = 100
-chart.title = '支店別売り上げ（積み上げ）'
+chart.title = '支店別売り上げ（100％積み上げ）'
 chart.x_axis.title = '支店'
 chart.y_axis.title = '売上'
 chart.add_data(data, titles_from_data = True)
 chart.set_categories(categories)
 
 ws.add_chart(chart, 'A9')
-wb.save('store_sales_vvertical_stacked.xlsx')
+wb.save('store_sales_vertical_percent_stacked.xlsx')

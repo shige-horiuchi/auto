@@ -1,7 +1,7 @@
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 def prepare_credentials():
     # 'token.pickle'というファイルに認証結果を保存しておき
-    # 認証がすでにされている場合はスキップする、という処理を行なっています。
+    # 認証がすでにされている場合はスキップする、という処理を行っています。
     import pickle
     import os.path
     from google.oauth2 import service_account
@@ -14,15 +14,14 @@ def prepare_credentials():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            creds = service_account.Credentials.from_service_account_file(
-                    'credentials.json', scopes=SCOPES)
+            creds = service_account.Credentials.from_service_account_file('credentials.json', scopes=SCOPES)
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
     return creds
 
 from googleapiclient.discovery import build
 
-SPREADSHEET_ID = '<<スプレッドシートID>>'
+SPREADSHEET_ID = '1FfVy0F5e0qxNcpSrEbUAty7TBoHOITHRqU1JdicHvZE'
 creds = prepare_credentials()
 service = build('sheets', 'v4', credentials=creds)
 
